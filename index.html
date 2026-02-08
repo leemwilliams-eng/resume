@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lee M. Williams - Product Leadership</title>
+    <meta name="description" content="Lee M. Williams - Product & Technology Executive. Scaled platforms from zero to 100M+ users at Nokia and Palm. Expert in B2B SaaS, IoT, and mobile ecosystems.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .delay-100 { animation-delay: 0.1s; opacity: 0; }
+        .delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .delay-300 { animation-delay: 0.3s; opacity: 0; }
+        .delay-400 { animation-delay: 0.4s; opacity: 0; }
+        .delay-500 { animation-delay: 0.5s; opacity: 0; }
+        .delay-600 { animation-delay: 0.6s; opacity: 0; }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #334155;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #0ea5e9;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0ea5e9;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-nav {
+            display: none;
+            padding: 1rem 0;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav .nav-link {
+            display: block;
+            padding: 0.75rem 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        .accent-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(99, 102, 241, 0.15));
+            filter: blur(60px);
+            pointer-events: none;
+        }
+
+        .accent-shape-1 {
+            width: 500px;
+            height: 500px;
+            top: -10%;
+            right: -5%;
+        }
+
+        .accent-shape-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -5%;
+            left: -10%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 8rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            color: #475569;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .hero-description {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: #64748b;
+            max-width: 48rem;
+            margin: 0 auto 3rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #0ea5e9, #6366f1);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #0f172a;
+            border: 2px solid #0f172a;
+        }
+
+        .btn-secondary:hover {
+            background: #0f172a;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 1.5rem;
+        }
+
+        .section-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-container-narrow {
+            max-width: 1152px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #475569;
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto 4rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .about-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .about-text p {
+            font-size: 1.125rem;
+            color: #475569;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .info-card {
+            background: linear-gradient(to bottom right, #f0f9ff, #e0f2fe);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-icon {
+            width: 3rem;
+            height: 3rem;
+            background: #0ea5e9;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .info-card-role {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .info-card-company {
+            color: #475569;
+        }
+
+        .info-card-date {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+
+        /* Experience Section */
+        .bg-slate {
+            background-color: #f8fafc;
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .experience-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .experience-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-header {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .experience-header {
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+        }
+
+        .experience-info {
+            flex: 1;
+        }
+
+        .experience-role {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company a {
+            color: #0ea5e9;
+            text-decoration: none;
+        }
+
+        .experience-company a:hover {
+            color: #0284c7;
+        }
+
+        .experience-meta {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        .experience-color-box {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 1rem;
+            flex-shrink: 0;
+        }
+
+        .experience-description {
+            color: #475569;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .experience-highlights {
+            list-style: none;
+        }
+
+        .experience-highlights li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            color: #334155;
+        }
+
+        .experience-highlights li::before {
+            content: '';
+            width: 0.375rem;
+            height: 0.375rem;
+            background: #0ea5e9;
+            border-radius: 50%;
+            margin-top: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Expertise Section */
+        .expertise-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .expertise-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .expertise-card {
+            background: linear-gradient(to bottom right, #f0f9ff, #dbeafe);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .expertise-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .expertise-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            background: linear-gradient(to bottom right, #0ea5e9, #06b6d4);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.75rem;
+        }
+
+        .expertise-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #334155;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        .technical-skills {
+            margin-top: 0.75rem;
+        }
+
+        .technical-skill {
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        .technical-skill-label {
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .technical-skill-value {
+            color: #475569;
+            margin-left: 0.5rem;
+        }
+
+        .strengths-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .strength-card {
+            background: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .strength-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .strength-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .strength-card h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .strength-card p {
+            font-size: 0.875rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(to bottom right, #0f172a, #0c4a6e);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-icon {
+            width: 4rem;
+            height: 4rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #bae6fd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: white;
+        }
+
+        .contact-item p {
+            color: #bae6fd;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            width: 3rem;
+            height: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+        }
+
+        /* SVG Icons */
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .icon-small {
+            width: 1.125rem;
+            height: 1.125rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="nav">
+        <div class="nav-container">
+            <div class="logo">
+                Lee M. <span class="gradient-text">Williams</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#expertise" class="nav-link">Expertise</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="mobile-nav" id="mobile-nav">
+            <div class="nav-container">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#expertise" class="nav-link">Expertise</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="accent-shape accent-shape-1"></div>
+        <div class="accent-shape accent-shape-2"></div>
+        
+        <div class="hero-content">
+            <h1 class="animate-fade-in-up">
+                Product<br>
+                <span class="gradient-text">Leadership</span>
+            </h1>
+            <p class="hero-subtitle animate-fade-in-up delay-200">
+                Product & Technology Executive
+            </p>
+            <p class="hero-description animate-fade-in-up delay-300">
+                Product executive who scaled platforms from zero to 100M+ users at Nokia and Palm. Transformed ET Water from hardware to $8M ARR SaaS in 24 months with 94% retention. Expert at turning technical innovation into market-winning products.
+            </p>
+            <div class="hero-buttons animate-fade-in-up delay-400">
+                <a href="#contact" class="btn btn-primary">
+                    Get In Touch
+                    <svg class="icon icon-small" viewBox="0 0 24 24">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <a href="#experience" class="btn btn-secondary">View Experience</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-white">
+        <div class="section-container-narrow">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">About</h2>
+                    <p class="animate-fade-in-up delay-100">
+                        Lee brings a vast experience set to the table. Having hands-on experience at the front lines of the internet era and the global efforts to mobilize and connect people in unprecedented ways, Lee has been fortunate enough to be a part of some groundbreaking product initiatives.
+                    </p>
+                    <p class="animate-fade-in-up delay-200">
+                        Some of the first smartphones, tablets, and distributed software services were developed on his teams at companies like Nokia, Palm, and Be, Inc.
+                    </p>
+                    <p class="animate-fade-in-up delay-300">
+                        Today, he runs his tech studio Edelleye Digital and has clients growing revenue and leveraging his team's marketing campaigns and cloud services. He is a seasoned and creative technology leader that has fun solving problems and working on the next big thing.
+                    </p>
+                </div>
+                <div class="animate-slide-in-right">
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                </svg>
+                            </div>
+                            <h3>Current Role</h3>
+                        </div>
+                        <p class="info-card-role">Chief Technology Officer</p>
+                        <p class="info-card-company">Edelleye Digital</p>
+                        <p class="info-card-date">2017 - Present</p>
+                    </div>
+                    
+                    <div class="info-card" style="background: linear-gradient(to bottom right, #eef2ff, #e0e7ff);">
+                        <div class="info-card-header">
+                            <div class="info-icon" style="background: #6366f1;">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                            </div>
+                            <h3>Expertise</h3>
+                        </div>
+                        <p class="info-card-company">Product Strategy & Roadmapping • 0-1 Product Development • Platform Architecture • B2B SaaS & IoT • User Research & Analytics • Cross-Functional Leadership</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="bg-slate">
+        <div class="section-container">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">
+                A track record of innovation and leadership at world-class companies
+            </p>
+
+            <div class="experience-list">
+                <!-- Edelleye Digital -->
+                <div class="experience-card animate-fade-in-up delay-100">
+                    <div class="experience-header">
+                        <div class="experience-info">
+                            <h3 class="experience-role">Chief Technology Officer</h3>
+                            <div class="experience-company">
+                                <span>Edelleye Digital</span>
+                                <a href="https://edelleye.com" target="_blank" rel="noopener noreferrer">
+                                    <svg class="icon icon-small" viewBox="0 0 24 24">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                            <p class="experience-meta">Tulsa, OK • 2017 - Present</p>
+                        </div>
+                        <div class="experience-color-box" style="background: linear-gradient(to bottom right, #0ea5e9, #06b6d4);"></div>
+                    </div>
+                    <p class="experience-description">
+                        Digital agency specializing in e-commerce, marketing technology, and custom software for growth-stage companies.
+                    </p>
+                    <ul class="experience-highlights">
+                        <li>Built and launched 12 SaaS products and e-commerce platforms serving 50+ clients across real estate, home building, and retail sectors, generating $2.5M in annual recurring revenue</li>
+                        <li>Drove 32% average revenue increase for clients ($400K → $528K annually) by identifying high-impact feature opportunities through user research, competitive analysis, and conversion funnel optimization</li>
+                        <li>Reduced time-to-market by 40% (6 months → 3.5 months) by implementing agile methodology, sprint-based delivery, and cross-functional product teams</li>
+                        <li>Achieved 85% client retention rate by establishing quarterly business reviews, proactive roadmap alignment, and data-driven success metrics tied to client KPIs</li>
+                    </ul>
+                </div>
+
+                <!-- ET Water -->
+                <div class="experience-card animate-fade-in-up delay-200">
+                    <div class="experience-header">
+                        <div class="experience-info">
+                            <h3 class="experience-role">Chief Operations Officer</h3>
+                            <div class="experience-company">
+                                <span>ET Water</span>
+                                <a href="https://jainsusa.com/etwater/" target="_blank" rel="noopener noreferrer">
+                                    <svg class="icon icon-small" viewBox="0 0 24 24">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                            <p class="experience-meta">Novato, CA • 2013 - 2016</p>
+                        </div>
+                        <div class="experience-color-box" style="background: linear-gradient(to bottom right, #3b82f6, #6366f1);"></div>
+                    </div>
+                    <p class="experience-description">
+                        IoT water management company serving commercial and agricultural markets in the U.S., Europe, and Middle East.
+                    </p>
+                    <ul class="experience-highlights">
+                        <li>Pivoted company from hardware sales to subscription SaaS model, launching cloud-based IoT platform that grew from $0 to $8M ARR in 24 months with 2,000+ site deployments (CVS, Target, commercial real estate)</li>
+                        <li>Delivered measurable customer ROI: 50% water usage reduction and $120K average annual savings per site, resulting in 18-month payback period and 94% customer retention</li>
+                        <li>Built real-time monitoring dashboard with predictive analytics and automated alerts, reducing system downtime by 65% and cutting operational support costs by $400K annually</li>
+                        <li>Secured $4.2M in enterprise contracts by developing vertical-specific solutions for retail, hospitality, and agriculture segments with customized ROI models and integration capabilities</li>
+                    </ul>
+                </div>
+
+                <!-- Nokia -->
+                <div class="experience-card animate-fade-in-up delay-300">
+                    <div class="experience-header">
+                        <div class="experience-info">
+                            <h3 class="experience-role">Senior Vice President, Smartphone Products</h3>
+                            <div class="experience-company">
+                                <span>Nokia Corporation</span>
+                                <a href="https://www.nokia.com/support/licensed-products/" target="_blank" rel="noopener noreferrer">
+                                    <svg class="icon icon-small" viewBox="0 0 24 24">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                            <p class="experience-meta">Helsinki, Finland • 2006 - 2011</p>
+                        </div>
+                        <div class="experience-color-box" style="background: linear-gradient(to bottom right, #6366f1, #a855f7);"></div>
+                    </div>
+                    <p class="experience-description">
+                        Global mobile technology leader with 1.3B users worldwide (2010 peak market share).
+                    </p>
+                    <ul class="experience-highlights">
+                        <li>Led smartphone platform strategy serving 100M+ active users, defining 5-year roadmap that maintained Nokia's #1 global smartphone position (40% market share) through 2010</li>
+                        <li>Open-sourced Symbian OS and established Symbian Foundation, growing developer community from 3,000 to 12,000+ members and app ecosystem from 8,000 to 25,000+ applications in 18 months</li>
+                        <li>Negotiated strategic partnerships with Adobe (Flash integration), Microsoft (Office Mobile), and Samsung (component supply) that reduced development costs by $45M annually while accelerating feature delivery by 6 months</li>
+                        <li>Served on Symbian Foundation Board alongside AT&T, Texas Instruments, Sony Ericsson, and DoCoMo, representing Nokia in technical governance and ecosystem strategy decisions</li>
+                    </ul>
+                </div>
+
+                <!-- Symbol Technologies -->
+                <div class="experience-card animate-fade-in-up delay-400">
+                    <div class="experience-header">
+                        <div class="experience-info">
+                            <h3 class="experience-role">General Manager, Mobility Software</h3>
+                            <div class="experience-company">
+                                <span>Symbol Technologies (acquired by Motorola 2006)</span>
+                                <a href="https://www.zebra.com/us/en.html" target="_blank" rel="noopener noreferrer">
+                                    <svg class="icon icon-small" viewBox="0 0 24 24">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                            <p class="experience-meta">Holtsville, NY • 2003 - 2005</p>
+                        </div>
+                        <div class="experience-color-box" style="background: linear-gradient(to bottom right, #a855f7, #ec4899);"></div>
+                    </div>
+                    <p class="experience-description">
+                        Enterprise mobility and barcode scanning technology provider serving logistics, retail, and manufacturing sectors.
+                    </p>
+                    <ul class="experience-highlights">
+                        <li>Launched enterprise mobile device management (MDM) platform, growing from concept to $12M annual revenue in 18 months through sales to Fortune 500 retailers and logistics companies</li>
+                        <li>Closed strategic accounts with Coca-Cola (15,000 devices), UPS (8,000 devices), and Home Depot (12,000 devices) by developing industry-specific workflows that reduced deployment time by 60% and training costs by 45%</li>
+                        <li>Contributed to Motorola acquisition ($3.9B) by demonstrating $50M pipeline and 140% year-over-year growth in mobility software division</li>
+                    </ul>
+                </div>
+
+                <!-- Palm -->
+                <div class="experience-card animate-fade-in-up delay-500">
+                    <div class="experience-header">
+                        <div class="experience-info">
+                            <h3 class="experience-role">Vice President, Product Development</h3>
+                            <div class="experience-company">
+                                <span>Palm, Inc. (acquired by HP 2010)</span>
+                            </div>
+                            <p class="experience-meta">Sunnyvale, CA • 2000 - 2003</p>
+                        </div>
+                        <div class="experience-color-box" style="background: linear-gradient(to bottom right, #ec4899, #f43f5e);"></div>
+                    </div>
+                    <p class="experience-description">
+                        Pioneer in personal digital assistants (PDAs) and smartphones with 70% U.S. PDA market share.
+                    </p>
+                    <ul class="experience-highlights">
+                        <li>Led Palm OS platform evolution serving 30M+ active users, shipping 8 major releases that maintained 70% U.S. market share and drove $1.5B in annual hardware revenue from Palm and OEM partners</li>
+                        <li>Launched Treo smartphone line (first integrated phone/PDA), achieving 2M+ units sold in first year and establishing Palm as smartphone category leader before iPhone era</li>
+                        <li>Built developer ecosystem through partnerships with Sony, Samsung, and Kyocera (OEM licensing) and third-party app platform, growing from 6,000 to 20,000+ applications and generating $80M in licensing revenue</li>
+                        <li>Platform IP acquired by HP for $1.2B (2010) and subsequently licensed to LG, Samsung, and other manufacturers for smart TVs and appliances, demonstrating long-term platform value</li>
+                    </ul>
+                </div>
+
+                <!-- Be, Inc. -->
+                <div class="experience-card animate-fade-in-up delay-600">
+                    <div class="experience-header">
+                        <div class="experience-info">
+                            <h3 class="experience-role">Vice President, Engineering</h3>
+                            <div class="experience-company">
+                                <span>Be, Inc. (acquired by Palm 2001)</span>
+                            </div>
+                            <p class="experience-meta">Menlo Park, CA • 1997 - 2000</p>
+                        </div>
+                        <div class="experience-color-box" style="background: linear-gradient(to bottom right, #f97316, #f59e0b);"></div>
+                    </div>
+                    <p class="experience-description">
+                        Operating system company developing BeOS for multimedia computing and internet appliances.
+                    </p>
+                    <ul class="experience-highlights">
+                        <li>Led engineering for BeOS and BeIA operating systems targeting PC, embedded devices, and internet appliance markets with advanced multimedia capabilities and real-time performance</li>
+                        <li>Launched BeBox dual-processor workstation and developed BeIA internet appliance platform, establishing technical foundation that influenced Palm's acquisition strategy and WebOS development</li>
+                        <li>Led alliances and M&A evaluation team that negotiated Palm acquisition ($11M, 2001), successfully positioning Be's technology and engineering team for integration into Palm OS roadmap</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="bg-white">
+        <div class="section-container">
+            <h2 class="section-title">Core Expertise</h2>
+            <p class="section-subtitle">
+                Skills and capabilities developed through decades of technology leadership
+            </p>
+
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-card-header">
+                        <div class="expertise-icon">💡</div>
+                        <h3>Industry Expertise</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Software Development</span>
+                        <span class="skill-tag">Product Management</span>
+                        <span class="skill-tag">Program Management</span>
+                        <span class="skill-tag">Campaign Development</span>
+                        <span class="skill-tag">Strategy & Ideation</span>
+                    </div>
+                </div>
+
+                <div class="expertise-card" style="background: linear-gradient(to bottom right, #eef2ff, #e0e7ff);">
+                    <div class="expertise-card-header">
+                        <div class="expertise-icon" style="background: linear-gradient(to bottom right, #6366f1, #a855f7);">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Technical Skills</h3>
+                    </div>
+                    <div class="technical-skills">
+                        <div class="technical-skill">
+                            <span class="technical-skill-label">Product Management:</span>
+                            <span class="technical-skill-value">Jira, Trello, ClickUp, Productboard, Aha!, Figma, UserTesting, Miro</span>
+                        </div>
+                        <div class="technical-skill">
+                            <span class="technical-skill-label">Analytics & Data:</span>
+                            <span class="technical-skill-value">Google Analytics, Mixpanel, Amplitude, HubSpot, Salesforce, Tableau</span>
+                        </div>
+                        <div class="technical-skill">
+                            <span class="technical-skill-label">Cloud & DevOps:</span>
+                            <span class="technical-skill-value">AWS, GCP, Docker, Kubernetes, GitHub, CI/CD pipelines</span>
+                        </div>
+                        <div class="technical-skill">
+                            <span class="technical-skill-label">Development:</span>
+                            <span class="technical-skill-value">Python, JavaScript, SQL, REST APIs, microservices architecture</span>
+                        </div>
+                        <div class="technical-skill">
+                            <span class="technical-skill-label">Methodologies:</span>
+                            <span class="technical-skill-value">Agile/Scrum, Lean Startup, Design Thinking, OKRs, A/B Testing, User Research</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="strengths-grid">
+                <div class="strength-card animate-fade-in-up delay-100">
+                    <div class="strength-icon">👥</div>
+                    <h4>Leadership</h4>
+                    <p>Develops and motivates high-performing teams to deliver innovative and impactful solutions</p>
+                </div>
+                <div class="strength-card animate-fade-in-up delay-200">
+                    <div class="strength-icon">🎯</div>
+                    <h4>Strategic Vision</h4>
+                    <p>Leverages market insights to guide product and operational strategies for long-term growth</p>
+                </div>
+                <div class="strength-card animate-fade-in-up delay-300">
+                    <div class="strength-icon">💡</div>
+                    <h4>Problem-Solving</h4>
+                    <p>Drives creative solutions through collaborative team environments and best practices</p>
+                </div>
+                <div class="strength-card animate-fade-in-up delay-400">
+                    <div class="strength-icon">🌟</div>
+                    <h4>Experience</h4>
+                    <p>Years of experience wearing multiple hats, enables you to see the forest through the trees</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-container" style="max-width: 64rem;">
+            <h2 class="section-title" style="color: white;">Let's Connect</h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">
+                Interested in collaboration, advisory opportunities, or just want to connect? Get in touch.
+            </p>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg class="icon" style="stroke: #7dd3fc;" viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Email</h3>
+                    <a href="/cdn-cgi/l/email-protection#e18d8484cf8ccf96888d8d88808c92a1868c80888dcf828e8c"><span class="__cf_email__" data-cfemail="6e020b0b40034019070202070f031d2e09030f0702400d0103">[email&#160;protected]</span></a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg class="icon" style="stroke: #7dd3fc;" viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                    <h3>Phone</h3>
+                    <a href="tel:+14059264025">(405) 926-4025</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg class="icon" style="stroke: #7dd3fc;" viewBox="0 0 24 24">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <h3>Location</h3>
+                    <p>Tulsa, Oklahoma</p>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/lee-m-williams/" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="https://edelleye.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Lee M. Williams. All rights reserved.</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Smooth scrolling for all navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileNav.classList.remove('active');
+                }
+            });
+        });
+
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            // Add scrolled class to nav
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            // Update active nav link based on scroll position
+            const sections = ['home', 'about', 'experience', 'expertise', 'contact'];
+            let current = '';
+
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= sectionTop - 100) {
+                        current = sectionId;
+                    }
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }
