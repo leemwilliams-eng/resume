@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lee M. Williams — Career Trajectory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #000000;
+    --bg2: #0a0a0a;
+    --bg3: #111111;
+    --bg4: #1a1a1a;
+    --accent: #4a90e2;
+    --accent2: #6aaff0;
+    --white: #ccd6f6;
+    --white-dim: #8892b0;
+    --muted: #495670;
+    --line: rgba(74,144,226,0.1);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: var(--font);
+    font-weight: 400;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* NAV — matches resume site style */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(0,0,0,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(74,144,226,0.08);
+    padding: 0 2.5rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--white-dim);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links .nav-num {
+    color: var(--accent);
+    margin-right: 4px;
+    font-size: 11px;
+  }
+
+  /* MAIN LAYOUT */
+  .page { padding-top: 60px; max-width: 1000px; margin: 0 auto; padding-left: 2.5rem; padding-right: 2.5rem; }
+
+  /* HERO */
+  .hero {
+    padding: 6rem 0 4rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-eyebrow {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    font-family: var(--font);
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    color: #e6f1ff;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--white-dim);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    max-width: 560px;
+    line-height: 1.7;
+  }
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1.5rem;
+  }
+  .hero-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border: 1px solid rgba(74,144,226,0.25);
+    border-radius: 3px;
+    color: var(--accent);
+    background: rgba(74,144,226,0.04);
+  }
+
+  /* SECTION */
+  section { padding: 4rem 0; border-bottom: 1px solid var(--line); }
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+    max-width: 240px;
+  }
+
+  /* CHART */
+  .chart-wrap { position: relative; width: 100%; height: 280px; margin-bottom: 1.5rem; }
+  .chart-legend { display: flex; gap: 24px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--white-dim); letter-spacing: 0.05em; }
+  .legend-line { width: 24px; height: 2px; border-radius: 1px; background: var(--accent); }
+  .legend-line.dashed { background: none; border-top: 2px dashed var(--accent2); }
+
+  /* ERA GRID */
+  .eras-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--muted);
+    border: 1px solid var(--muted);
+    margin-top: 2rem;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .era-cell {
+    background: var(--bg2);
+    padding: 1.5rem 1.25rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .era-cell:hover { background: var(--bg3); }
+  .era-cell.active { background: var(--bg4); }
+  .era-cell.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+  }
+  .era-num {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-family: var(--font);
+  }
+  .era-marker { width: 6px; height: 6px; border-radius: 50%; margin-bottom: 0.75rem; }
+  .era-name { font-size: 13px; font-weight: 600; color: #e6f1ff; margin-bottom: 0.35rem; line-height: 1.3; }
+  .era-role-label { font-size: 11px; color: var(--white-dim); line-height: 1.4; }
+
+  /* DETAIL PANEL */
+  .detail-panel {
+    margin-top: 1px;
+    background: var(--bg2);
+    border: 1px solid rgba(74,144,226,0.12);
+    border-top: 2px solid var(--accent);
+    padding: 2.5rem;
+    min-height: 200px;
+    border-radius: 0 0 4px 4px;
+  }
+  .detail-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: start; }
+  .detail-era-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .detail-company { font-size: 1.6rem; font-weight: 600; color: #e6f1ff; line-height: 1.15; margin-bottom: 0.35rem; }
+  .detail-role-title { font-size: 13px; color: var(--white-dim); margin-bottom: 1.5rem; letter-spacing: 0.02em; }
+  .detail-desc { font-size: 14px; color: var(--white-dim); line-height: 1.85; }
+  .detail-stats { display: flex; flex-direction: column; gap: 1.25rem; padding-top: 0.25rem; }
+  .stat-row { border-left: 2px solid var(--accent); padding-left: 1rem; }
+  .stat-value { font-size: 1.15rem; font-weight: 600; color: #e6f1ff; line-height: 1.1; }
+  .stat-key { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-dim); margin-top: 3px; }
+
+  /* SUMMARY STRIP */
+  .summary-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--muted);
+    border: 1px solid var(--muted);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+  .summary-block { background: var(--bg2); padding: 2.5rem 2rem; text-align: center; }
+  .summary-num { font-size: 2.25rem; font-weight: 600; color: var(--accent); line-height: 1; margin-bottom: 0.6rem; letter-spacing: -0.02em; }
+  .summary-label { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; color: var(--white-dim); text-transform: uppercase; }
+
+  /* FOOTER */
+  footer {
+    padding: 3rem 0;
+    text-align: center;
+    border-top: 1px solid var(--line);
+  }
+  .footer-name { font-size: 13px; font-weight: 600; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.5rem; }
+  .footer-sub { font-size: 11px; font-weight: 400; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
+
+  @media (max-width: 720px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1rem; }
+    .page { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .eras-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .detail-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .summary-strip { grid-template-columns: 1fr; }
+    h1 { font-size: 2rem; }
+    .detail-panel { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://leemwilliams-eng.github.io/resume" class="nav-logo">LMW</a>
+  <ul class="nav-links">
+    <li><a href="https://leemwilliams-eng.github.io/resume#home"><span class="nav-num">01.</span>Home</a></li>
+    <li><a href="https://leemwilliams-eng.github.io/resume#about"><span class="nav-num">02.</span>About</a></li>
+    <li><a href="https://leemwilliams-eng.github.io/resume#experience"><span class="nav-num">03.</span>Experience</a></li>
+    <li><a href="https://leemwilliams-eng.github.io/resume#expertise"><span class="nav-num">04.</span>Expertise</a></li>
+    <li><a href="https://leemwilliams-eng.github.io/resume#contact"><span class="nav-num">05.</span>Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <div class="hero">
+    <p class="hero-eyebrow">Career Trajectory</p>
+    <h1>From code<br />to continents.</h1>
+    <p class="hero-sub">Product executive who built the first smartphones and tablets at Palm, connected hundreds of millions of users at Nokia, and delivered enterprise mobility to Fortune 500 companies at Symbol Technologies.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">Be Inc.</span>
+      <span class="hero-tag">Palm</span>
+      <span class="hero-tag">Symbol Technologies</span>
+      <span class="hero-tag">Nokia</span>
+      <span class="hero-tag">100M+ users</span>
+    </div>
+  </div>
+
+  <section>
+    <p class="section-label">Reach &amp; influence over time</p>
+    <div class="chart-wrap"><canvas id="trajChart"></canvas></div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-line"></div><span>Scale of reach</span></div>
+      <div class="legend-item"><div class="legend-line dashed"></div><span>Depth of influence</span></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">The eras — click to explore</p>
+    <div class="eras-grid" id="eraGrid"></div>
+    <div class="detail-panel" id="detailPanel"></div>
+
+    <div class="summary-strip">
+      <div class="summary-block">
+        <div class="summary-num">30+</div>
+        <div class="summary-label">Years of product leadership</div>
+      </div>
+      <div class="summary-block">
+        <div class="summary-num">100s M</div>
+        <div class="summary-label">Users reached globally</div>
+      </div>
+      <div class="summary-block">
+        <div class="summary-num">First</div>
+        <div class="summary-label">Smartphones &amp; tablets</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p class="footer-name">Lee M. Williams</p>
+  <p class="footer-sub">Technologist &nbsp;·&nbsp; Product Leader &nbsp;·&nbsp; Edelleye Digital &nbsp;·&nbsp; Tulsa, OK</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const eras = [
+  {
+    num:"01", company:"Developer", fullName:"Software Developer",
+    role:"Individual contributor", period:"Foundation era",
+    color:"#8892b0", reach:2, influence:1,
+    stats:[{value:"IC",key:"Role level"},{value:"Code",key:"Primary output"},{value:"Foundation",key:"Impact type"}],
+    desc:"Ground-level mastery — writing code, learning systems, building the technical intuition that every leadership decision since has stood on. The foundation isn't background; it's the reason the rest of the arc is credible."
+  },
+  {
+    num:"02", company:"Be Inc.", fullName:"Be Inc.",
+    role:"Project leader, OS products", period:"BeOS era",
+    color:"#4a90e2", reach:18, influence:15,
+    stats:[{value:"OS",key:"Platform scope"},{value:"Team lead",key:"Role level"},{value:"Systems",key:"Domain"}],
+    desc:"Led operating system product development at one of the most ambitious software companies of the era — working at the raw intersection of hardware and software before that language was common. BeOS was ahead of its time. So was the team."
+  },
+  {
+    num:"03", company:"Palm", fullName:"Palm Inc.",
+    role:"Leadership — first smartphones & tablets", period:"Palm era",
+    color:"#6aaff0", reach:120, influence:85,
+    stats:[{value:"First",key:"Smartphones & tablets"},{value:"Millions",key:"Devices shipped"},{value:"Category",key:"Market created"}],
+    desc:"Helped define the category of handheld computing. Before iPhone, before Android — the team at Palm was drawing the blueprint. Lee was in the room where the first smartphones and tablets were born, building product and bringing them to market at scale."
+  },
+  {
+    num:"04", company:"Symbol", fullName:"Symbol Technologies",
+    role:"Enterprise mobile — major clients", period:"Symbol era",
+    color:"#f8b878", reach:200, influence:160,
+    stats:[{value:"Fortune 500",key:"Client base"},{value:"Enterprise",key:"Market scope"},{value:"Multi-vertical",key:"Industry reach"}],
+    desc:"Brought mobile and data technology into the largest enterprises in the world — retail, logistics, healthcare, manufacturing. Real deployments at real scale. The kind of work where operational complexity is measured in millions of transactions and zero margin for error."
+  },
+  {
+    num:"05", company:"Nokia", fullName:"Nokia",
+    role:"Global smartphone product portfolio", period:"Nokia era",
+    color:"#4a90e2", reach:500, influence:480,
+    stats:[{value:"100s of M",key:"Users reached"},{value:"Global",key:"Market footprint"},{value:"Peak",key:"Scale of influence"}],
+    desc:"At the peak of the world's largest mobile company, Lee's product portfolio reached and connected hundreds of millions of people across every major market on the planet. This is what it looks like when product leadership operates at civilizational scale."
+  }
+];
+
+let activeIdx = 4;
+
+function renderDetail(idx) {
+  const e = eras[idx];
+  document.querySelectorAll('.era-cell').forEach((c,i) => c.classList.toggle('active', i===idx));
+  document.getElementById('detailPanel').innerHTML = `
+    <div class="detail-inner">
+      <div>
+        <p class="detail-era-label">${e.num} &nbsp;·&nbsp; ${e.period}</p>
+        <h2 class="detail-company">${e.fullName}</h2>
+        <p class="detail-role-title">${e.role}</p>
+        <p class="detail-desc">${e.desc}</p>
+      </div>
+      <div class="detail-stats">
+        ${e.stats.map(s=>`<div class="stat-row"><div class="stat-value">${s.value}</div><div class="stat-key">${s.key}</div></div>`).join('')}
+      </div>
+    </div>`;
+}
+
+const grid = document.getElementById('eraGrid');
+eras.forEach((e,i) => {
+  const cell = document.createElement('div');
+  cell.className = 'era-cell' + (i===activeIdx?' active':'');
+  cell.innerHTML = `<div class="era-marker" style="background:${e.color}"></div><div class="era-num">${e.num}</div><div class="era-name">${e.company}</div><div class="era-role-label">${e.role}</div>`;
+  cell.onclick = () => { activeIdx=i; renderDetail(i); };
+  grid.appendChild(cell);
+});
+renderDetail(activeIdx);
+
+new Chart(document.getElementById('trajChart'), {
+  type:'line',
+  data:{
+    labels: eras.map(e=>e.company),
+    datasets:[
+      {
+        label:'reach', data:eras.map(e=>e.reach),
+        borderColor:'#4a90e2', backgroundColor:'rgba(74,144,226,0.05)',
+        borderWidth:2.5,
+        pointBackgroundColor:eras.map(e=>e.color),
+        pointBorderColor:'#000', pointBorderWidth:2,
+        pointRadius:7, pointHoverRadius:10,
+        fill:true, tension:0.4
+      },
+      {
+        label:'influence', data:eras.map(e=>e.influence),
+        borderColor:'#6aaff0', backgroundColor:'rgba(106,175,240,0.04)',
+        borderWidth:2, borderDash:[5,4],
+        pointBackgroundColor:eras.map(e=>e.color),
+        pointBorderColor:'#000', pointBorderWidth:2,
+        pointRadius:5, pointHoverRadius:8,
+        fill:true, tension:0.4
+      }
+    ]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    interaction:{mode:'index', intersect:false},
+    onClick:(evt,elements) => { if(elements.length){activeIdx=elements[0].index; renderDetail(activeIdx);} },
+    plugins:{
+      legend:{display:false},
+      tooltip:{
+        backgroundColor:'#0a0a0a',
+        borderColor:'rgba(100,255,218,0.2)', borderWidth:1,
+        titleColor:'#4a90e2', bodyColor:'#8892b0',
+        titleFont:{family:"'Inter', sans-serif", size:11, weight:'600'},
+        bodyFont:{family:"'Inter', sans-serif", size:11},
+        padding:12,
+        callbacks:{ label: ctx => ctx.dataset.label==='reach' ? '  scale of reach' : '  depth of influence' }
+      }
+    },
+    scales:{
+      x:{
+        grid:{color:'rgba(74,144,226,0.05)'},
+        ticks:{font:{family:"'Inter', sans-serif", size:11}, color:'#495670'},
+        border:{color:'rgba(74,144,226,0.1)'}
+      },
+      y:{ display:false, min:0, max:580 }
+    }
+  }
+});
+</script>
+</body>
+</html>
